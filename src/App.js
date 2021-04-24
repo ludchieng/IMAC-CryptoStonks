@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import StonkChart from './StonkChart/stonkchart'
 import fetchExchangeRates from'./StonkFetcher/stonkfetcher';
+
+const style = {
+  maxWidth: "300px"
+}
 
 function App() {
   const [data, setData] = useState();
@@ -15,8 +20,10 @@ function App() {
 
   return (
     <div>
-      <p>Allo?</p>
       <p>{ (data !== undefined) ? data.message.stonkimac : "" }</p>
+      <div style={style}>
+        <StonkChart />
+      </div>
     </div>
   );
 }

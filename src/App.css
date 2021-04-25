@@ -46,7 +46,7 @@
 
 #LeftSideBarCryptoSelector{
   width: 100px;
-  
+  z-index: 10;
 }
 
 .LeftSideBarCrypto{
@@ -54,11 +54,11 @@
   width: 100px;
   background-color: #61dafb;
   text-align: center;
+  z-index: 10;
 }
 
 #LeftSideBarCryptoCharts{
   width: 300px;
-  background-color: aquamarine;
 }
 
 .LeftSideBarCryptoChart{
@@ -66,9 +66,21 @@
   height: 100px;
   background-color: aquamarine;
   text-align: center;
+  z-index: 1;
 }
 
 .active{
-  position: relative;
-  left: 100px;
+  animation-name: LeftSideBarCryptoChartApparition;
+  animation-duration: 2s;
+}
+
+@keyframes LeftSideBarCryptoChartApparition{
+  from{
+    position: relative;  
+    left: -400px
+  }
+  to{
+    position: relative;
+    left: 0px;
+  }
 }

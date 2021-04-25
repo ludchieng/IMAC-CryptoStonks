@@ -64,6 +64,8 @@
 .LeftSideBarCryptoChart{
   width: 300px;
   height: 100px;
+  position: relative;
+  left: -300px;
   background-color: aquamarine;
   text-align: center;
   z-index: 1;
@@ -71,16 +73,36 @@
 
 .active{
   animation-name: LeftSideBarCryptoChartApparition;
-  animation-duration: 2s;
+  animation-duration: 1s;
+  position: relative;
+  left: 0px;
+}
+
+.disparition{
+  animation-name: LeftSideBarCryptoChartDisparition;
+  animation-duration: 1s;
+  position: relative;
+  left: -300px;
 }
 
 @keyframes LeftSideBarCryptoChartApparition{
   from{
     position: relative;  
-    left: -400px
+    left: -300px
   }
   to{
     position: relative;
     left: 0px;
+  }
+}
+
+@keyframes LeftSideBarCryptoChartDisparition{
+  from{
+    position: relative;  
+    left: 0px
+  }
+  to{
+    position: relative;
+    left: -300px;
   }
 }

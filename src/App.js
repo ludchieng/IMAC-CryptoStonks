@@ -4,7 +4,8 @@ import LeftSideBar from "./LeftSideBar"
 
 let cryptoList=[
   {name : "ImacCoin", price : 10, symbol : "$IMA"}, 
-  {name : "SaltCoin", price : 100, symbol : "$SLT"}]
+  {name : "SaltCoin", price : 100, symbol : "$SLT"},
+  {name : "OpainGL", price : 0.1, symbol : "OGL"}]
 
 
 function App() {

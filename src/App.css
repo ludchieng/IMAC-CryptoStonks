@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+#LeftSideBar{
+  width: 400px;
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+} 
+
+#LeftSideBarCryptoSelector{
+  width: 100px;
+  
+}
+
+.LeftSideBarCrypto{
+  height: 100px;
+  width: 100px;
+  background-color: #61dafb;
+  text-align: center;
+}
+
+#LeftSideBarCryptoCharts{
+  width: 300px;
+  background-color: aquamarine;
+}
+
+.LeftSideBarCryptoChart{
+  width: 300px;
+  height: 100px;
+  background-color: aquamarine;
+  text-align: center;
+}
+
+.active{
+  position: relative;
+  left: 100px;
+}

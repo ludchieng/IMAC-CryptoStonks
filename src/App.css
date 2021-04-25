@@ -38,20 +38,19 @@
 }
 
 #LeftSideBar{
-  width: 400px;
-  background-color: red;
+  width: 450px;
   display: flex;
   flex-direction: row;
 } 
 
 #LeftSideBarCryptoSelector{
-  width: 100px;
+  width: 150;
   z-index: 10;
 }
 
 .LeftSideBarCrypto{
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   background-color: #61dafb;
   text-align: center;
   z-index: 10;
@@ -63,10 +62,10 @@
 
 .LeftSideBarCryptoChart{
   width: 300px;
-  height: 100px;
+  height: 150px;
   position: relative;
   left: -300px;
-  background-color: aquamarine;
+  background-color: white;
   text-align: center;
   z-index: 1;
 }
@@ -105,4 +104,8 @@
     position: relative;
     left: -300px;
   }
+}
+
+.LeftSideBarCryptoChartContainer canvas{
+  max-width: 300px;
 }

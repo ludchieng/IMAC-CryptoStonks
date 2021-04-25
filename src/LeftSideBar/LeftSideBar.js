@@ -1,11 +1,13 @@
 import React from 'react';
+import StonkChart from '../StonkChart/stonkchart'
+
 
 class LeftSideBar extends React.Component {
-
 
     constructor(props){
         super(props);
         this.cryptoList = props.cryptoList;
+        this.cryptoData = props.data
     }
 
     handleLeftSideBarClick = (e, name) => {
@@ -37,7 +39,7 @@ class LeftSideBar extends React.Component {
                     {this.cryptoList.map( (elt) => (<div key={"LeftSideBarCryptoSelector"+elt.symbol} className="LeftSideBarCrypto" onClick = { e => this.handleLeftSideBarClick(e, elt.symbol)} > {elt.symbol} {elt.price}€</div>))}
                 </div>
                 <div id="LeftSideBarCryptoCharts">
-                    {this.cryptoList.map( (elt) => (<div key={"LeftSideBarCryptoCharts"+elt.symbol} id={elt.symbol} className="LeftSideBarCryptoChart"> {elt.symbol}</div>))}
+                    {this.cryptoList.map( (elt) => (<div key={"LeftSideBarCryptoCharts"+elt.symbol} id={elt.symbol} className="LeftSideBarCryptoChart"> <StonkChart /> </div>))}
                 </div>
             </div>
         )

@@ -1,40 +1,7 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+* {
+  font-family: 'Lato', Verdana, sans-serif;
 }
 
 #LeftSideBar{
@@ -44,65 +11,89 @@
 } 
 
 #LeftSideBarCryptoSelector{
-  width: 150;
+  width: 150px;
   z-index: 10;
 }
 
 .LeftSideBarCrypto{
+  z-index: 10;
   height: 150px;
   width: 150px;
-  background-color: #61dafb;
-  text-align: center;
-  z-index: 10;
+  background-color: #e9c759;
+
+  font-weight: 700;
+  color: #fff;
+  text-shadow: -150px 0 0 #ee5438;
+
+  cursor: pointer;
 }
 
-#LeftSideBarCryptoCharts{
-  width: 300px;
+.LeftSideBarCrypto:hover {
+  font-size: 1.1em;
+}
+.LeftSideBarCrypto.active {
+  text-shadow: 5px 2px 0 #ee5438;
+  font-size: 1.1em;
+  transition: 200ms;
 }
 
-.LeftSideBarCryptoChart{
+.LeftSideBarCryptoSymbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.LeftSideBarCryptoChartContainer {
+  position: relative;
+  top: -150px;
+  left: -150px;
+}
+
+.LeftSideBarCryptoChart {
+  position: relative;
   width: 300px;
   height: 150px;
-  position: relative;
-  left: -300px;
-  background-color: white;
+  background-color: "#0000";
   text-align: center;
-  z-index: 1;
+  border-radius: 0 12px 12px 0;
+  z-index: -1;
 }
 
-.active{
-  animation-name: LeftSideBarCryptoChartApparition;
+.active .LeftSideBarCryptoChart {
+  animation-name: LeftSideBarCryptoApparition;
+  animation-duration: 1s;
+  position: relative;
+  left: 300px;
+}
+
+.disparition .LeftSideBarCryptoChart {
+  animation-name: LeftSideBarCryptoDisparition;
   animation-duration: 1s;
   position: relative;
   left: 0px;
 }
 
-.disparition{
-  animation-name: LeftSideBarCryptoChartDisparition;
-  animation-duration: 1s;
-  position: relative;
-  left: -300px;
+@keyframes LeftSideBarCryptoApparition{
+  from{
+    position: relative;
+    left: 0px;
+  }
+  to{
+    position: relative;
+    left: 300px;
+  }
 }
 
-@keyframes LeftSideBarCryptoChartApparition{
+@keyframes LeftSideBarCryptoDisparition{
   from{
-    position: relative;  
-    left: -300px
+    position: relative;
+    left: 300px;
   }
   to{
     position: relative;
     left: 0px;
-  }
-}
-
-@keyframes LeftSideBarCryptoChartDisparition{
-  from{
-    position: relative;  
-    left: 0px
-  }
-  to{
-    position: relative;
-    left: -300px;
   }
 }
 

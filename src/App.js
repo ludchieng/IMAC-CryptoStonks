@@ -4,8 +4,8 @@ import LeftSideBar from "./LeftSideBar/LeftSideBar";
 import fetchExchangeRates from'./StonkFetcher/stonkfetcher';
 
 let cryptoList=[
-  {name : "ImacCoin", price : 10, symbol : "$IMA"}, 
-  {name : "SaltCoin", price : 100, symbol : "$SLT"},
+  {name : "ImacCoin", price : 10, symbol : "IMA"}, 
+  {name : "SaltCoin", price : 100, symbol : "SLT"},
   {name : "OpainGL", price : 0.1, symbol : "OGL"}
 ]
 

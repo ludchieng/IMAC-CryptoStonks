@@ -12,15 +12,24 @@ class StonkChart extends React.Component {
       fetchExchangeRates()
       .then((resp) => resp.json())
       .then((respData) => {
-        this.chart.data.datasets[0].data.push(respData.message.stonkimac)
-        this.chart.data.labels.push('')
+        const data = this.chart.data.datasets[0].data
+        // Push new data in front
+        data.push(respData.message.stonkimac)
+        // Pop oldest data
+        if (data.length > 35)
+          data.shift()
+        
+        // Match labels length to data length
+        while (data.length > this.chart.data.labels.length)
+          this.chart.data.labels.push('')
+
         this.chart.update()
       })
     , 1000)
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval);
+    clearInterval(this.interval)
   }
   
   render() {
@@ -40,7 +49,7 @@ class StonkChart extends React.Component {
             data: []
           }]
         }}
-        
+
         options={{
           legend: {
             display: false
@@ -48,11 +57,23 @@ class StonkChart extends React.Component {
           scales: {
             xAxes: [{
               ticks: { display: false },
+              
+              gridLines: {
+                color: "transparent",
+              }
             }],
             yAxes: [{
               position: 'right',
-              ticks: { stepSize: 10 },
+              ticks: { /*stepSize: 10*/ },
             }]
+          },
+          layout: {
+              padding: {
+                  left: 0,
+                  right: 10,
+                  top: 20,
+                  bottom: 10
+              }
           }
         }} />
       )

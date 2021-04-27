@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import StonkChart from './StonkChart/stonkchart'
+import LeftSideBar from "./LeftSideBar/LeftSideBar";
 import fetchExchangeRates from'./StonkFetcher/stonkfetcher';
 
-const style = {
-  maxWidth: "300px"
-}
+let cryptoList=[
+  {name : "ImacCoin", price : 10, symbol : "$IMA"}, 
+  {name : "SaltCoin", price : 100, symbol : "$SLT"},
+  {name : "OpainGL", price : 0.1, symbol : "OGL"}
+]
 
 function App() {
+  
+  const [crypto, setCrypto] = useState(cryptoList);
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -18,14 +22,12 @@ function App() {
     }
   });
 
-  return (
-    <div>
-      <p>{ (data !== undefined) ? data.message.stonkimac : "" }</p>
-      <div style={style}>
-        <StonkChart />
-      </div>
-    </div>
-  );
+  return(
+    <LeftSideBar
+      cryptoList = {crypto}
+      cryptoData = {data}
+    />
+  )
 }
 
 export default App;

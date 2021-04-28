@@ -23,7 +23,6 @@ class CryptoWallet extends React.Component {
                         <div className="ticker__item TwitchChannelName">CRYPTOSTONK : LA CHAINE DE LA CRYPTO ET DE LA STONK</div>    
                     </div>
                 </div>
-                
             </div>
         )
     }

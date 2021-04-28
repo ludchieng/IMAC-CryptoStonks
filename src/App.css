@@ -226,3 +226,19 @@
   font-size: 2rem;
   color: white;   
 }
+
+#StonkAlert{
+  position: fixed;
+  bottom: 70px;
+  width: 100vw;
+  height: 324px;
+  background-color: #ee5438;
+}
+
+#StonkAlertImage{
+  width: 432px;
+  height: 324px;
+  background-image: url("./Images/stonk.gif");
+  background-size: cover;
+  background-color: #e9c759;
+}

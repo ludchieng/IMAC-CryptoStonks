@@ -38,7 +38,7 @@ class LeftSideBar extends React.Component {
                             className="LeftSideBarCrypto"
                             onClick = { e => this.handleLeftSideBarClick(e, crypto.symbol)}
                         >
-                            <div class="LeftSideBarCryptoSymbol">{crypto.symbol}</div>
+                            <div className="LeftSideBarCryptoSymbol">{crypto.symbol}</div>
                             <div className="LeftSideBarCryptoChartContainer">
                                 <div
                                     key={"LeftSideBarCryptoChart"+crypto.symbol}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import TopSideBar from "./TopSideBar/TopSideBar";
 import LeftSideBar from "./LeftSideBar/LeftSideBar";
 import CryptoWallet from "./CryptoWallet/CryptoWallet";
 import StonkAlert from "./StonkAlert/StonkAlert";
@@ -30,6 +31,14 @@ function App() {
 
   return(
     <div>
+      <TopSideBar
+      name = "CRYPTOSTONK"
+      follower = "DuduDu93600"
+      subscriber = "Xx_D4rk__Sasuk3_xX"
+      donator = "anonymous"
+      donation = "5.00"
+      />
+
       <LeftSideBar
       cryptoList = {crypto}
       cryptoData = {data}

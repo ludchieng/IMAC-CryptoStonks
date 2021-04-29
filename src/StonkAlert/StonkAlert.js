@@ -11,6 +11,7 @@ class StonkAlert extends React.Component {
     render(){
         return(   
             <div id="StonkAlert">
+                
                 <div id="StonkAlertImage"></div>
                 <div id="StonkAlertName">{this.cryptoName}</div>
                 <div id="StonkAlertPrice">{this.cryptoPrice}€</div>

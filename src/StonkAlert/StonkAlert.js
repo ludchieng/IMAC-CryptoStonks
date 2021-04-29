@@ -13,7 +13,7 @@ class StonkAlert extends React.Component {
             <div id="StonkAlert">
                 <div id="StonkAlertImage"></div>
                 <div id="StonkAlertName">{this.cryptoName}</div>
-                <div id="StonkAlertPrice">{this.cryptoPrice}</div>
+                <div id="StonkAlertPrice">{this.cryptoPrice}€</div>
             </div>
         )
     }

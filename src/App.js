@@ -36,8 +36,8 @@ function App() {
       />
       
       <StonkAlert
-      cryptoName = "ImacCoin"
-      cryptoPrice = "1000"
+      name = "ImacCoin"
+      price = "1000"
       />
 
       <CryptoWallet

@@ -1,35 +1,35 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import fetchExchangeRates from'../StonkFetcher/stonkfetcher';
+import fetchExchangeRates from'./StonkFetcher';
 
 class StonkChart extends React.Component {
 
   chartRef = React.createRef(); 
 
   componentDidMount() {
-    this.chart = this.chartRef.current.chartInstance
+    this.chart = this.chartRef.current.chartInstance;
     this.interval = setInterval(() =>
       fetchExchangeRates()
       .then((resp) => resp.json())
       .then((respData) => {
-        const data = this.chart.data.datasets[0].data
+        const data = this.chart.data.datasets[0].data;
         // Push new data in front
-        data.push(respData.message.stonkimac)
+        data.push(respData.message.stonkimac);
         // Pop oldest data
         if (data.length > 35)
-          data.shift()
+          data.shift();
         
         // Match labels length to data length
         while (data.length > this.chart.data.labels.length)
-          this.chart.data.labels.push('')
+          this.chart.data.labels.push('');
 
-        this.chart.update()
+        this.chart.update();
       })
     , 1000)
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval)
+    clearInterval(this.interval);
   }
   
   render() {

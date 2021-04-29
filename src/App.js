@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import TopSideBar from "./TopSideBar/TopSideBar";
-import LeftSideBar from "./LeftSideBar/LeftSideBar";
-import CryptoWallet from "./CryptoWallet/CryptoWallet";
-import StonkAlert from "./StonkAlert/StonkAlert";
-import fetchExchangeRates from'./StonkFetcher/stonkfetcher';
+import Header from "./Stonk/Header";
+import Aside from "./Stonk/Aside";
+import Footer from "./Stonk/Footer";
+import StonkAlert from "./Stonk/StonkAlert";
+import fetchExchangeRates from'./Stonk/StonkFetcher';
 
 let cryptoList=[
   {name : "ImacCoin", price : 10, nb : 100, symbol : "IMA"}, 
@@ -12,8 +12,7 @@ let cryptoList=[
   {name : "OpainGL", price : 0.1, nb : 1578, symbol : "OGL"},
   {name : "ZesipeGold", price : 1, nb : 358, symbol : "ZPG"},
   {name : "NozickTokenMaths", price : 101, nb : 72, symbol : "NTM"},
-
-]
+];
 
 function App() {
   
@@ -31,27 +30,27 @@ function App() {
 
   return(
     <div>
-      <TopSideBar
-      name = "CRYPTOSTONK"
-      follower = "DuduDu93600"
-      subscriber = "Xx_D4rk__Sasuk3_xX"
-      donator = "anonymous"
-      donation = "5.00"
+      <Header
+        name = "CRYPTOSTONK"
+        follower = "DuduDu93600"
+        subscriber = "Xx_D4rk__Sasuk3_xX"
+        donator = "anonymous"
+        donation = "5.00"
       />
 
-      <LeftSideBar
-      cryptoList = {crypto}
-      cryptoData = {data}
+      <Aside
+        cryptoList = {crypto}
+        cryptoData = {data}
       />
       
       <StonkAlert
-      name = "ImacCoin"
-      price = "1000"
+        name = "ImacCoin"
+        price = "1000"
       />
 
-      <CryptoWallet
-      cryptoList = {crypto}
-      cryptoData = {data}
+      <Footer
+        cryptoList = {crypto}
+        cryptoData = {data}
       />
     </div>
     

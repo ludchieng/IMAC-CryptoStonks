@@ -7,18 +7,18 @@
   
 }
 
-#LeftSideBar{
+#Aside{
   width: 450px;
   display: flex;
   flex-direction: row;
 } 
 
-#LeftSideBarCryptoSelector{
+#AsideCryptoSelector{
   width: 150px;
   z-index: 10;
 }
 
-.LeftSideBarCrypto{
+.AsideCrypto{
   z-index: 10;
   height: 150px;
   width: 150px;
@@ -31,16 +31,16 @@
   cursor: pointer;
 }
 
-.LeftSideBarCrypto:hover {
+.AsideCrypto:hover {
   font-size: 1.1em;
 }
-.LeftSideBarCrypto.active {
+.AsideCrypto.active {
   text-shadow: 5px 2px 0 #ee5438;
   font-size: 1.1em;
   transition: 200ms;
 }
 
-.LeftSideBarCryptoSymbol {
+.AsideCryptoSymbol {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,13 +48,13 @@
   width: 100%;
 }
 
-.LeftSideBarCryptoChartContainer {
+.AsideCryptoChartContainer {
   position: relative;
   top: -150px;
   left: -150px;
 }
 
-.LeftSideBarCryptoChart {
+.AsideCryptoChart {
   position: relative;
   width: 300px;
   height: 150px;
@@ -64,21 +64,21 @@
   z-index: -1;
 }
 
-.active .LeftSideBarCryptoChart {
-  animation-name: LeftSideBarCryptoApparition;
+.active .AsideCryptoChart {
+  animation-name: AsideCryptoApparition;
   animation-duration: 1s;
   position: relative;
   left: 300px;
 }
 
-.disparition .LeftSideBarCryptoChart {
-  animation-name: LeftSideBarCryptoDisparition;
+.disparition .AsideCryptoChart {
+  animation-name: AsideCryptoDisparition;
   animation-duration: 1s;
   position: relative;
   left: 0px;
 }
 
-@keyframes LeftSideBarCryptoApparition{
+@keyframes AsideCryptoApparition{
   from{
     position: relative;
     left: 0px;
@@ -89,7 +89,7 @@
   }
 }
 
-@keyframes LeftSideBarCryptoDisparition{
+@keyframes AsideCryptoDisparition{
   from{
     position: relative;
     left: 300px;
@@ -100,23 +100,23 @@
   }
 }
 
-.LeftSideBarCryptoChartContainer canvas{
+.AsideCryptoChartContainer canvas{
   max-width: 300px;
 }
 
-#CryptoWallet{
+#Footer{
   height: 50px;
   background-color: #e9c759;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  animation-name: CryptoWalletToLeft;
+  animation-name: FooterToLeft;
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
-@keyframes CryptoWalletToLeft{
+@keyframes FooterToLeft{
   0%{
     transform: translate3d(0,0,0);
   }
@@ -126,7 +126,7 @@
 }
 
 
-.CryptoWalletCrypto{
+.FooterCrypto{
   height: 50px;
   min-width: 250px;
   background-color: #e9c759;
@@ -137,7 +137,7 @@
   justify-content: space-between;
 }
 
-.CryptoWalletNameCrypto{
+.FooterNameCrypto{
   padding-left: 100px;
   font-weight: 700;
   color: #fff;
@@ -154,7 +154,7 @@
   text-shadow: +4px 0 0 #ee5438;
 }
 
-.CryptoWalletPriceCrypto{
+.FooterPriceCrypto{
   padding-left: 50px;
   font-weight: 700;
   text-shadow: +1px 0 0 #fff;
@@ -278,7 +278,7 @@
   margin: auto;
 }
 
-#TopSideBar{
+#Header{
   width: 100%;
   overflow: hidden;
   height: 70px;
@@ -290,14 +290,14 @@
   margin: auto;
 }
 
-#TopSideBarName{
+#HeaderName{
   font-weight: 700;
   color: #fff;
   text-shadow: +4px 0 0 #ee5438;
   margin: auto;
 }
 
-#TopSideBarSubscriber{
+#HeaderSubscriber{
   color: #fff;
   /*text-shadow: +4px 0 0 #ee5438;*/
   display: flex;
@@ -305,7 +305,7 @@
   font-size: 20px;
 }
 
-#TopSideBarFollower{
+#HeaderFollower{
   color: #fff;
   /*text-shadow: +4px 0 0 #ee5438;*/
   display: flex;
@@ -313,7 +313,7 @@
   font-size: 20px;
 }
 
-#TopSideBarDonation{
+#HeaderDonation{
   color: #fff;
   /*text-shadow: +4px 0 0 #ee5438;*/
   display: flex;

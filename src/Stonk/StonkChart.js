@@ -4,7 +4,15 @@ import fetchExchangeRates from'./StonkFetcher';
 
 class StonkChart extends React.Component {
 
-  chartRef = React.createRef(); 
+  chartRef = React.createRef();
+  state = {
+    data: []
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    // Prevent chartjs reloading
+    return false;
+  }
 
   componentDidMount() {
     this.chart = this.chartRef.current.chartInstance;
@@ -14,7 +22,7 @@ class StonkChart extends React.Component {
       .then((respData) => {
         const data = this.chart.data.datasets[0].data;
         // Push new data in front
-        data.push(respData.message.stonkimac);
+        data.push(respData.message[this.props.cryptoSymbol]);
         // Pop oldest data
         if (data.length > 35)
           data.shift();

@@ -17,16 +17,16 @@ class StonkAlert extends React.Component {
         <div id="logo">{this.name}</div>
         <ul>
           <li>
-            <div class="label">Dernier Abonné</div>
-            <div class="value"> {this.subscriber}</div>
+            <div className="label">Dernier Abonné</div>
+            <div className="value"> {this.subscriber}</div>
           </li>
           <li>
-            <div class="label">Dernier Follower</div>
-            <div class="value"> {this.follower}</div>
+            <div className="label">Dernier Follower</div>
+            <div className="value"> {this.follower}</div>
           </li>
           <li>
-            <div class="label">Dernier Don</div>
-            <div class="value"> {this.donator} - {this.donation}€</div>
+            <div className="label">Dernier Don</div>
+            <div className="value"> {this.donator} - {this.donation}€</div>
           </li>
         </ul>
       </header>

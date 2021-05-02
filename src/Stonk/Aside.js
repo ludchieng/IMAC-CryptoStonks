@@ -4,7 +4,7 @@ import StonkChart from './StonkChart'
 const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
   if (!isLoaded) {
     return (
-      <aside></aside>
+      <aside hidden></aside>
     )
   } else {
 
@@ -14,9 +14,19 @@ const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
           {cryptoList.map((crypto) => (
             <li
               key={`crypto-${crypto.symbol}`}
-              onClick={e => handleAsideClick(e, crypto.symbol)}
+              onClick={event => handleAsideClick(event)}
             >
-              <div className="crypto-symbol">{crypto.symbol}</div>
+              <div className="crypto-btn">
+                <div className="no-click">
+                  <div className="crypto-symbol">
+                    {crypto.symbol}
+                  </div>
+                  <div className="crypto-value">
+                    {cryptoData[crypto.symbol].toFixed(2)}
+                    €
+                  </div>
+                </div>
+              </div>
               <div className="crypto-container">
                 <div
                   key={`crypto-chart-${crypto.symbol}`}
@@ -36,19 +46,13 @@ const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
 
 const handleAsideClick = (event) => {
   event.preventDefault();
-  const cryptoBtn = event.target.parentNode;
-  const cryptoList = document.querySelectorAll("aside ul li"); // ALED c pa bo
-  for (let c of cryptoList) { // ALED c pa bo
-    if (c.classList.contains("disparition")) {
-      c.classList.remove("disparition");
-    }
-    if (c.classList.contains("active")) {
-      c.classList.remove("active");
-      c.classList.add("disparition");
-    }
-  }
-  if (!cryptoBtn.classList.contains("disparition")) {
-    cryptoBtn.classList.add("active");
+  const classList = event.target.parentNode.classList;
+  if (classList.contains("show")) {
+    classList.remove("show");
+    classList.add("hide");
+  } else {
+    classList.remove("hide");
+    classList.add("show");
   }
 }
 

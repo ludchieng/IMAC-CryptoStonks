@@ -10,25 +10,21 @@ class Footer extends React.Component {
     } else {
       return (
         <footer>
-          <div className="ticker">
-            <ul>
-              <li>
-                Solde :
+          <ul>
+            <li>Solde :</li>
+            {this.props.cryptoList.map((crypto) => (
+              <li key={`ticker-${crypto.symbol}`}>
+                <span className="crypto-symbol">{crypto.symbol}</span>
+                <span className="crypto-balance crypto-balance-stonk">
+                  {(crypto.nb * this.props.cryptoData[crypto.symbol]).toFixed(2)}
+                  €
+                </span>
               </li>
-              {this.props.cryptoList.map((crypto) => (
-                <li key={`ticker-${crypto.symbol}`}>
-                  <span className="crypto-symbol">{crypto.symbol}</span>
-                  <span className="crypto-balance crypto-balance-stonk">
-                    {(crypto.nb * this.props.cryptoData[crypto.symbol]).toFixed(2)}
-                    €
-                  </span>
-                </li>
-              ))}
-              <li className="ticker-message">
-                CryptoStonk : la chaîne de la crypto et de la stonk
-              </li>
-            </ul>
-          </div>
+            ))}
+            <li className="ticker-message">
+              CryptoStonk : la chaîne de la crypto et de la stonk
+            </li>
+          </ul>
         </footer>
       )
     }

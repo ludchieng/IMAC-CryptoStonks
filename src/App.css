@@ -11,6 +11,10 @@
   --color-off-white: #f7eef1;
   --color-primary: #f52e7a;
   --color-secondary: #a56982;
+  --color-STONK: #43ee5a;
+  --color-off-STONK: #41a04e;
+  --color-DTONK: #f53838;
+  --color-off-DTONK: #c54c4c;
 }
 
 body {
@@ -21,6 +25,10 @@ ul, li {
   display: block;
   margin: 0;
   padding: 0;
+}
+
+.no-click {
+  pointer-events: none;
 }
 
 /* ------------ */
@@ -52,19 +60,19 @@ header ul {
   justify-content: space-between;
 }
 
-header ul li {
+header li {
   margin: auto 32px;
   font-size: 20px;
 }
 
-header ul li .label {
+header li .label {
   font-weight: 600;
   font-size: 15px;
   color: var(--color-secondary);
   text-transform: uppercase;
 }
 
-header ul li .value {
+header li .value {
   font-size: 20px;
   color: var(--color-off-white);
 }
@@ -79,7 +87,15 @@ aside {
   height: 100vh;
   overflow: hidden;
   flex-direction: row;
-} 
+  transition: 1s;
+}
+
+aside[hidden] {
+  -webkit-transform: translateX(-150px);
+  transform: translateX(-150px);
+  opacity: 0.5;
+  transition: 1s;
+}
 
 aside ul {
   width: 150px;
@@ -100,26 +116,33 @@ aside li {
   transition: 200ms;
 }
 
-aside li:hover {
+aside li .crypto-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+aside li:hover .crypto-symbol {
   font-size: 1.1em;
   transition: 200ms;
 }
-aside li.active {
+aside li.show .crypto-symbol {
   color: var(--color-off-white);
   font-size: 1.1em;
   text-shadow: 3px .5px 0 var(--color-primary);
   transition: 200ms;
 }
 
-aside .crypto-symbol {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
+aside li .crypto-value {
+  font-size: 20px;
+  font-weight: 500;
 }
 
-aside .crypto-container {
+aside li .crypto-container {
   position: relative;
   top: -150px;
   left: -150px;
@@ -140,14 +163,14 @@ aside .crypto-chart {
   z-index: -1;
 }
 
-aside .active .crypto-chart {
+aside .show .crypto-chart {
   animation-name: CryptoShow;
   animation-duration: 1s;
   position: relative;
   left: 300px;
 }
 
-aside .disparition .crypto-chart {
+aside .hide .crypto-chart {
   animation-name: CryptoHide;
   animation-duration: 1s;
   position: relative;
@@ -180,21 +203,7 @@ aside .disparition .crypto-chart {
 /*    FOOTER    */
 /* ------------ */
 
-footer .crypto-symbol {
-  padding-left: 100px;
-  color: var(--color-off-white);
-}
-
-footer .crypto-balance {
-  padding-left: 50px;
-  text-shadow: 1px 0 0 var(--color-off-white);
-}
-
-footer .crypto-balance-stonk {
-  color: #3dc04f;
-}
-
-footer .ticker {
+footer {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -205,7 +214,7 @@ footer .ticker {
   box-sizing: content-box;
 }
 
-footer .ticker ul {
+footer ul {
   display: inline-block;
   background-color: var(--color-bg);
   height: 50px;
@@ -219,7 +228,7 @@ footer .ticker ul {
   animation-duration: var(--duration-ticker);
 }
 
-footer .ticker ul li {
+footer ul li {
   display: inline-block;
   padding: 0 2rem;
   font-size: 2rem;
@@ -227,6 +236,22 @@ footer .ticker ul li {
   color: var(--color-off-white);
   text-shadow: 3px .5px 0 var(--color-secondary);
   text-transform: uppercase;
+}
+
+footer ul li .crypto-symbol {
+  padding-left: 100px;
+  color: var(--color-off-white);
+}
+
+footer ul li .crypto-balance {
+  padding-left: 50px;
+  font-weight: 500;
+  text-shadow: 1.5px .5px 0 var(--color-secondary);
+}
+
+footer ul li .crypto-balance-stonk {
+  color: var(--color-STONK);
+  text-shadow: 1.5px .5px 0 var(--color-off-STONK);
 }
 
 footer .ticker-message {

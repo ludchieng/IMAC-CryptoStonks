@@ -7,11 +7,11 @@ import StonkAlert from "./Stonk/StonkAlert";
 import fetchExchangeRates from'./Stonk/StonkFetcher';
 
 const cryptoList=[
-  {name : "ImacCoin", nb : .21, symbol : "IMA"}, 
-  {name : "SaltCoin", nb : .27, symbol : "SLT"},
-  {name : "OpainGL", nb : .15, symbol : "OGL"},
-  {name : "ZesipeGold", nb : .32, symbol : "ZPG"},
-  {name : "NozickTokenMaths", nb : .72, symbol : "NTM"},
+  { name : "ImacCoin", nb : .21, symbol : "IMA" }, 
+  { name : "SaltCoin", nb : .27, symbol : "SLT" },
+  { name : "OpainGL", nb : .15, symbol : "OGL" },
+  { name : "ZesipeGold", nb : .32, symbol : "ZPG" },
+  { name : "NozickTokenMaths", nb : .72, symbol : "NTM" },
 ];
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
   }, []);
 
   return(
-    <div>
+    <>
       <Header
         name = "CRYPTOSTONK"
         follower = "DuduDu93600"
@@ -61,8 +61,7 @@ function App() {
         cryptoList = {cryptoList}
         cryptoData = {cryptoData}
       />
-    </div>
-    
+    </>
   )
 }
 

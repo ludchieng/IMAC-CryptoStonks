@@ -13,21 +13,23 @@ class StonkAlert extends React.Component {
 
   render() {
     return (
-      <div id="Header">
-        <div id="HeaderName">{this.name}</div>
-        <div id="HeaderSubscriber">
-          <div>Dernier Abonné : </div>
-          <div> {this.subscriber}</div>
-        </div>
-        <div id="HeaderFollower">
-          <div>Dernier Follower : </div>
-          <div> {this.follower}</div>
-        </div>
-        <div id="HeaderDonation">
-          <div>Dernier Don : </div>
-          <div> {this.donator} - {this.donation}€</div>
-        </div>
-      </div>
+      <header>
+        <div id="logo">{this.name}</div>
+        <ul>
+          <li>
+            <div class="label">Dernier Abonné</div>
+            <div class="value"> {this.subscriber}</div>
+          </li>
+          <li>
+            <div class="label">Dernier Follower</div>
+            <div class="value"> {this.follower}</div>
+          </li>
+          <li>
+            <div class="label">Dernier Don</div>
+            <div class="value"> {this.donator} - {this.donation}€</div>
+          </li>
+        </ul>
+      </header>
     )
   }
 

@@ -1,46 +1,117 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
 
 * {
-  font-family: 'Lato', Verdana, sans-serif;
+  font-family: 'Rubik', Verdana, sans-serif;
   box-sizing: border-box; 
-  --duration: 20s;
-  
+  letter-spacing: -0.35px;
+  user-select: none;
+  --duration-ticker: 24s;
+  --duration-stonk-alert: 10s;
+  --color-bg: #251b29;
+  --color-off-white: #f7eef1;
+  --color-primary: #f52e7a;
+  --color-secondary: #a56982;
 }
 
-#Aside{
-  width: 450px;
+body {
+  overflow: hidden;
+}
+
+ul, li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------ */
+/*    HEADER    */
+/* ------------ */
+
+header {
   display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+#logo {
+  margin: auto 16px;
+  flex-grow: 0;
+  font-weight: 700;
+  color: var(--color-off-white);
+  text-shadow: 3px .5px 0 var(--color-primary);
+}
+
+header ul {
+  display: flex;
+  flex-grow: 0;
+  justify-content: space-between;
+}
+
+header ul li {
+  margin: auto 32px;
+  font-size: 20px;
+}
+
+header ul li .label {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+}
+
+header ul li .value {
+  font-size: 20px;
+  color: var(--color-off-white);
+}
+
+/* ------------ */
+/*    ASIDE    */
+/* ------------ */
+
+aside {
+  display: flex;
+  max-width: 450px;
+  height: 100vh;
+  overflow: hidden;
   flex-direction: row;
 } 
 
-#AsideCryptoSelector{
+aside ul {
   width: 150px;
   z-index: 10;
 }
 
-.AsideCrypto{
+aside li {
   z-index: 10;
   height: 150px;
   width: 150px;
-  background-color: #e9c759;
+  background-color: var(--color-bg);
 
   font-weight: 700;
-  color: #fff;
-  text-shadow: -150px 0 0 #ee5438;
+  color: var(--color-secondary);
+  text-shadow: -150px 0 0 #0000;
 
   cursor: pointer;
-}
-
-.AsideCrypto:hover {
-  font-size: 1.1em;
-}
-.AsideCrypto.active {
-  text-shadow: 5px 2px 0 #ee5438;
-  font-size: 1.1em;
   transition: 200ms;
 }
 
-.AsideCryptoSymbol {
+aside li:hover {
+  font-size: 1.1em;
+  transition: 200ms;
+}
+aside li.active {
+  color: var(--color-off-white);
+  font-size: 1.1em;
+  text-shadow: 3px .5px 0 var(--color-primary);
+  transition: 200ms;
+}
+
+aside .crypto-symbol {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,275 +119,204 @@
   width: 100%;
 }
 
-.AsideCryptoChartContainer {
+aside .crypto-container {
   position: relative;
   top: -150px;
   left: -150px;
 }
 
-.AsideCryptoChart {
+aside canvas {
+  max-width: 300px;
+  background-color: #f8eff2ee;
+}
+
+aside .crypto-chart {
   position: relative;
   width: 300px;
   height: 150px;
-  background-color: "#0000";
+  background-color: #0000;
   text-align: center;
   border-radius: 0 12px 12px 0;
   z-index: -1;
 }
 
-.active .AsideCryptoChart {
-  animation-name: AsideCryptoApparition;
+aside .active .crypto-chart {
+  animation-name: CryptoShow;
   animation-duration: 1s;
   position: relative;
   left: 300px;
 }
 
-.disparition .AsideCryptoChart {
-  animation-name: AsideCryptoDisparition;
+aside .disparition .crypto-chart {
+  animation-name: CryptoHide;
   animation-duration: 1s;
   position: relative;
   left: 0px;
 }
 
-@keyframes AsideCryptoApparition{
-  from{
+@keyframes CryptoShow {
+  from {
     position: relative;
     left: 0px;
   }
-  to{
+  to {
     position: relative;
     left: 300px;
   }
 }
 
-@keyframes AsideCryptoDisparition{
-  from{
+@keyframes CryptoHide {
+  from {
     position: relative;
     left: 300px;
   }
-  to{
+  to {
     position: relative;
     left: 0px;
   }
 }
 
-.AsideCryptoChartContainer canvas{
-  max-width: 300px;
-}
+/* ------------ */
+/*    FOOTER    */
+/* ------------ */
 
-#Footer{
-  height: 50px;
-  background-color: #e9c759;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  animation-name: FooterToLeft;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes FooterToLeft{
-  0%{
-    transform: translate3d(0,0,0);
-  }
-  100%{
-    transform: translate3d(-120%,0,0);
-  }
-}
-
-
-.FooterCrypto{
-  height: 50px;
-  min-width: 250px;
-  background-color: #e9c759;
-  color: #fff;
-  margin-left: 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.FooterNameCrypto{
+footer .crypto-symbol {
   padding-left: 100px;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: +4px 0 0 #ee5438;
+  color: var(--color-off-white);
 }
 
-.TwitchChannelName{
-  padding-left: 200px !important;
-  height: 50px;
-  min-width: 1920px;
-  background-color: #e9c759;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: +4px 0 0 #ee5438;
-}
-
-.FooterPriceCrypto{
+footer .crypto-balance {
   padding-left: 50px;
-  font-weight: 700;
-  text-shadow: +1px 0 0 #fff;
+  text-shadow: 1px 0 0 var(--color-off-white);
 }
 
-.TendancePositiv{
-  color: hsl(128, 77%, 55%);
+footer .crypto-balance-stonk {
+  color: #3dc04f;
 }
 
-
-
-@-webkit-keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-@keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-.ticker-wrap {
+footer .ticker {
   position: fixed;
   bottom: 0;
   width: 100%;
   overflow: hidden;
   height: 70px;
-  background-color: #e9c759; 
+  background-color: var(--color-bg); 
   padding-left: 100%;
   box-sizing: content-box;
 }
 
-.ticker {
+footer .ticker ul {
   display: inline-block;
-  background-color: #e9c759;
+  background-color: var(--color-bg);
   height: 50px;
   line-height: 4rem;  
   white-space: nowrap;
   padding-right: 100%;
   box-sizing: content-box;
-  -webkit-animation-iteration-count: infinite; 
   animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-name: ticker;
-  animation-name: ticker;
-  -webkit-animation-duration: var(--duration);
-  animation-duration: var(--duration);
+  animation-name: Ticker;
+  animation-duration: var(--duration-ticker);
 }
 
-.ticker__item {
+footer .ticker ul li {
   display: inline-block;
   padding: 0 2rem;
   font-size: 2rem;
-  color: white;   
+  font-weight: 700;
+  color: var(--color-off-white);
+  text-shadow: 3px .5px 0 var(--color-secondary);
+  text-transform: uppercase;
 }
 
-#StonkAlert{
+footer .ticker-message {
+  padding-left: 200px !important;
+  height: 50px;
+  min-width: 100vw;
+  background-color: var(--color-bg);
+}
+
+@-webkit-keyframes Ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes Ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* ------------------- */
+/*     STONK ALERT     */
+/* ------------------- */
+
+#stonk-alert {
+  margin: 0 0 0 150px;
   position: fixed;
   bottom: -254px;
-  width: 100vw;
+  width: calc(100vw - 150px);
   height: 324px;
-  background-color: #ee5438;
+  background-color: var(--color-primary);
   display: flex;
-  animation-name: StonkAlertApparition;
-  animation-duration: 10s;
+  animation-name: StonkAlertShow;
+  animation-duration: var(--duration-stonk-alert);
 }
 
-@keyframes StonkAlertApparition{
-  0%{
-    transform: translate3d(0,0%,0);
+@keyframes StonkAlertShow {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
-  20%{
-    transform: translate3d(0,-100%,0);
+  20% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
   }
-  80%{
-    transform: translate3d(0,-100%,0);
+  80% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
   }
-  100%{
-    transform: translate3d(0,0%,0);
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-#StonkAlertImage{
+#stonk-alert-image {
   width: 432px;
   height: 324px;
   background-image: url("./Images/stonk.gif");
   background-size: cover;
-  background-color: #e9c759;
+  background-color: var(--color-bg);
 
 }
 
-#StonkAlertName{
+#stonk-alert-crypto {
   font-weight: 700;
   font-size: 70px;
-  color: #fff;
-  text-shadow: +4px 0 0 #e9c759;
+  color: var(--color-off-white);
+  text-shadow: 4px 0 0 var(--color-bg);
   margin: auto;
 }
 
-#StonkAlertPrice{
+#stonk-alert-value {
   font-weight: 700;
   font-size: 70px;
-  color: #fff;
-  text-shadow: +4px 0 0 #e9c759;
+  color: var(--color-off-white);
+  text-shadow: 4px 0 0 var(--color-bg);
   margin: auto;
-}
-
-#Header{
-  width: 100%;
-  overflow: hidden;
-  height: 70px;
-  background-color: #e9c759; 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  margin: auto;
-}
-
-#HeaderName{
-  font-weight: 700;
-  color: #fff;
-  text-shadow: +4px 0 0 #ee5438;
-  margin: auto;
-}
-
-#HeaderSubscriber{
-  color: #fff;
-  /*text-shadow: +4px 0 0 #ee5438;*/
-  display: flex;
-  margin: auto;
-  font-size: 20px;
-}
-
-#HeaderFollower{
-  color: #fff;
-  /*text-shadow: +4px 0 0 #ee5438;*/
-  display: flex;
-  margin: auto;
-  font-size: 20px;
-}
-
-#HeaderDonation{
-  color: #fff;
-  /*text-shadow: +4px 0 0 #ee5438;*/
-  display: flex;
-  margin: auto;
-  font-size: 20px;
 }

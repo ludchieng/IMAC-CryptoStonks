@@ -1,36 +1,35 @@
 import React from 'react';
 import StonkChart from './StonkChart'
 
-const Aside = ({isLoaded, cryptoList, cryptoData}) => {
+const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
   if (!isLoaded) {
     return (
-      <div id="Aside"></div>
+      <aside></aside>
     )
   } else {
 
     return (
-      <div id="Aside">
-        <div id="AsideCryptoSelector">
+      <aside>
+        <ul>
           {cryptoList.map((crypto) => (
-            <div
-              key={"AsideCryptoSelector" + crypto.symbol}
-              className="AsideCrypto"
+            <li
+              key={`crypto-${crypto.symbol}`}
               onClick={e => handleAsideClick(e, crypto.symbol)}
             >
-              <div className="AsideCryptoSymbol">{crypto.symbol}</div>
-              <div className="AsideCryptoChartContainer">
+              <div className="crypto-symbol">{crypto.symbol}</div>
+              <div className="crypto-container">
                 <div
-                  key={"AsideCryptoChart" + crypto.symbol}
+                  key={`crypto-chart-${crypto.symbol}`}
                   id={crypto.symbol}
-                  className="AsideCryptoChart"
+                  className="crypto-chart"
                 >
                   <StonkChart cryptoSymbol={crypto.symbol} />
                 </div>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
-      </div>
+        </ul>
+      </aside>
     )
   }
 }
@@ -38,7 +37,7 @@ const Aside = ({isLoaded, cryptoList, cryptoData}) => {
 const handleAsideClick = (event) => {
   event.preventDefault();
   const cryptoBtn = event.target.parentNode;
-  const cryptoList = document.getElementsByClassName("AsideCrypto"); // ALED c pa bo
+  const cryptoList = document.querySelectorAll("aside ul li"); // ALED c pa bo
   for (let c of cryptoList) { // ALED c pa bo
     if (c.classList.contains("disparition")) {
       c.classList.remove("disparition");

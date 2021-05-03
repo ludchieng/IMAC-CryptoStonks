@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState, forceUpdate } from 'react';
 import StonkChart from './StonkChart'
 
 const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
+  const [active, setActive] = useState({
+    'IMA': false,
+    'SLT': false,
+    'OGL': false,
+    'ZPG': false,
+    'NTM': false,
+  });
+  console.log('INIT', active)
+
+  const handleAsideClick = (event, cryptoSymbol) => {
+    event.preventDefault();
+    active[cryptoSymbol] = !active[cryptoSymbol];
+  }
+
   if (!isLoaded) {
     return (
       <aside hidden></aside>
@@ -14,12 +28,13 @@ const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
           {cryptoList.map((crypto) => (
             <li
               key={`crypto-${crypto.symbol}`}
-              onClick={event => handleAsideClick(event)}
+              onClick={event => handleAsideClick(event, crypto.symbol)}
+              className={(active[crypto.symbol]) ? 'show' : 'hide'}
             >
               <div className="crypto-btn">
                 <div className="no-click">
                   <div className="crypto-symbol">
-                    {crypto.symbol}
+                    {active[crypto.symbol].toString()}
                   </div>
                   <div className="crypto-value">
                     {cryptoData[crypto.symbol].toFixed(2)}
@@ -41,18 +56,6 @@ const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
         </ul>
       </aside>
     )
-  }
-}
-
-const handleAsideClick = (event) => {
-  event.preventDefault();
-  const classList = event.target.parentNode.classList;
-  if (classList.contains("show")) {
-    classList.remove("show");
-    classList.add("hide");
-  } else {
-    classList.remove("hide");
-    classList.add("show");
   }
 }
 

@@ -5,7 +5,7 @@
   box-sizing: border-box; 
   letter-spacing: -0.35px;
   user-select: none;
-  --duration-ticker: 24s;
+  --duration-ticker: 32s;
   --duration-stonk-alert: 10s;
   --color-bg: #251b29;
   --color-off-white: #f7eef1;

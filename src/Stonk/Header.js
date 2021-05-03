@@ -1,32 +1,23 @@
 import React from 'react';
 
-class StonkAlert extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.name = props.name;
-    this.follower = props.follower;
-    this.subscriber = props.subscriber;
-    this.donator = props.donator;
-    this.donation = props.donation;
-  }
+class Header extends React.Component {
 
   render() {
     return (
       <header>
-        <div id="logo">{this.name}</div>
+        <div id="logo">{this.props.name}</div>
         <ul>
           <li>
             <div className="label">Dernier Abonné</div>
-            <div className="value"> {this.subscriber}</div>
+            <div className="value"> {this.props.subscriber}</div>
           </li>
           <li>
             <div className="label">Dernier Follower</div>
-            <div className="value"> {this.follower}</div>
+            <div className="value"> {this.props.follower}</div>
           </li>
           <li>
             <div className="label">Dernier Don</div>
-            <div className="value"> {this.donator} - {this.donation}€</div>
+            <div className="value"> {this.props.donator} - {this.props.donation}€</div>
           </li>
         </ul>
       </header>
@@ -35,4 +26,4 @@ class StonkAlert extends React.Component {
 
 }
 
-export default StonkAlert;
+export default Header;

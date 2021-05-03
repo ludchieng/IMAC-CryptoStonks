@@ -19,6 +19,7 @@ function App() {
   const [cryptoData, setCryptoData] = useState();
   const [intervalFetchExchangeRates, setIntervalFetchExchangeRates] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [imaExchangeRate, setImaExchangeRate] = useState([0]);
 
   useEffect(() => {
     setIntervalFetchExchangeRates(
@@ -27,10 +28,11 @@ function App() {
           .then((resp) => resp.json())
           .then((data) => {
             setCryptoData(data.message);
+            //checkIma();
+            //setImaExchangeRate(imaExchangeRate);
             setIsLoaded(true);
-            console.log(data);
           })
-      , 1000)
+      , 500)
     );
   }, []);
 
@@ -43,6 +45,7 @@ function App() {
         donator = "anonymous"
         donation = "5.00"
       />
+
 
       <Aside
         isLoaded = {isLoaded}
@@ -64,5 +67,14 @@ function App() {
     </>
   )
 }
+/*
+function checkIma() {
+  imaExchangeRate.push(data.message.IMA) // ALED
+  if (imaExchangeRate.length > 35)
+    imaExchangeRate.shift();
+
+  const diff = imaExchangeRate[imaExchangeRate.length] - imaExchangeRate[0];
+  if (diff > )
+}*/
 
 export default App;

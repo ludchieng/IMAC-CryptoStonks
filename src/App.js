@@ -19,7 +19,11 @@ function App() {
   const [cryptoData, setCryptoData] = useState();
   const [intervalFetchExchangeRates, setIntervalFetchExchangeRates] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [imaExchangeRate, setImaExchangeRate] = useState([0]);
+  const [isStonked, setIsStonked] = useState(false);
+
+  let stonkThreshold = 1.2;
+  let imaExchangeRateStart;
+  const [stonkAlertPrice, setStonkAlertPrice] = useState(0);
 
   useEffect(() => {
     setIntervalFetchExchangeRates(
@@ -28,8 +32,17 @@ function App() {
           .then((resp) => resp.json())
           .then((data) => {
             setCryptoData(data.message);
-            //checkIma();
-            //setImaExchangeRate(imaExchangeRate);
+            
+            if (!isLoaded) {
+              imaExchangeRateStart = data.message.IMA;
+            }
+
+            const pasElegant = imaExchangeRateStart * stonkThreshold;
+            if (pasElegant < data.message.IMA) {
+              setIsStonked(true);
+              setStonkAlertPrice(pasElegant);
+              stonkThreshold = 1.2 * pasElegant;
+            }
             setIsLoaded(true);
           })
       , 500)
@@ -55,8 +68,9 @@ function App() {
       
       <StonkAlert
         isLoaded = {isLoaded}
+        isStonked = {isStonked}
         name = "ImacCoin"
-        price = "1000"
+        price = {stonkAlertPrice}
       />
 
       <Footer
@@ -67,14 +81,5 @@ function App() {
     </>
   )
 }
-/*
-function checkIma() {
-  imaExchangeRate.push(data.message.IMA) // ALED
-  if (imaExchangeRate.length > 35)
-    imaExchangeRate.shift();
-
-  const diff = imaExchangeRate[imaExchangeRate.length] - imaExchangeRate[0];
-  if (diff > )
-}*/
 
 export default App;

@@ -298,8 +298,20 @@ footer .ticker-message {
   height: 324px;
   background-color: var(--color-primary);
   display: flex;
-  animation-name: StonkAlertShow;
+  /*animation-name: StonkAlertShow;*/
   animation-duration: var(--duration-stonk-alert);
+}
+
+#stonk-alert.visible {
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  transition: 2s;
+}
+
+#stonk-alert.hidden {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  transition: 2s;
 }
 
 @keyframes StonkAlertShow {

@@ -2,14 +2,11 @@ import React, { useState, forceUpdate } from 'react';
 import StonkChart from './StonkChart'
 
 const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
-  const [active, setActive] = useState({
-    'IMA': false,
-    'SLT': false,
-    'OGL': false,
-    'ZPG': false,
-    'NTM': false,
-  });
-  console.log('INIT', active)
+  const [active, ] = useState(
+    cryptoList
+      .map((crypto) => ( crypto.symbol ))
+      .reduce((acc, crypto) => (acc[crypto]=false, acc),{})
+  );
 
   const handleAsideClick = (event, cryptoSymbol) => {
     event.preventDefault();
@@ -34,7 +31,7 @@ const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
               <div className="crypto-btn">
                 <div className="no-click">
                   <div className="crypto-symbol">
-                    {active[crypto.symbol].toString()}
+                    {crypto.symbol}
                   </div>
                   <div className="crypto-value">
                     {cryptoData[crypto.symbol].toFixed(2)}

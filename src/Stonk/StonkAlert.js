@@ -1,10 +1,10 @@
 import React from 'react';
 
-const StonkAlert = ({cryptoName, cryptoPrice}) => (
+const StonkAlert = ({name, price}) => (
   <div id="stonk-alert">
     <div id="stonk-alert-image"></div>
-    <div id="stonk-alert-crypto">{cryptoName}</div>
-    <div id="stonk-alert-value">{cryptoPrice}€</div>
+    <div id="stonk-alert-crypto">{name}</div>
+    <div id="stonk-alert-value">{price}€</div>
   </div>
 )
 

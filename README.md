@@ -7,8 +7,11 @@ A short React project made for programming courses. :mortar_board:
 
 ## **Preview** :rocket::framed_picture:
 
-TODO
+![Screenshot 1](./misc/screenshot-1.png)
 
 ## **Instructions** :wrench::gear:
 
-TODO
+```
+npm install
+npm start
+```

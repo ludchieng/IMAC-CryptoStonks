@@ -33,7 +33,7 @@ class StonkChart extends React.Component {
 
           this.chart.update();
         })
-      , 1000)
+      , 500)
   }
 
   componentWillUnmount() {

@@ -1,29 +1,23 @@
 import React from 'react';
 
-class Header extends React.Component {
-
-  render() {
-    return (
-      <header>
-        <div id="logo">{this.props.name}</div>
-        <ul>
-          <li>
-            <div className="label">Dernier Abonné</div>
-            <div className="value"> {this.props.subscriber}</div>
-          </li>
-          <li>
-            <div className="label">Dernier Follower</div>
-            <div className="value"> {this.props.follower}</div>
-          </li>
-          <li>
-            <div className="label">Dernier Don</div>
-            <div className="value"> {this.props.donator} - {this.props.donation}€</div>
-          </li>
-        </ul>
-      </header>
-    )
-  }
-
-}
+const Header = ({name, follower, subscriber, donator, donation}) => (
+  <header>
+    <div id="logo">{name}</div>
+    <ul>
+      <li>
+        <div className="label">Dernier Abonné</div>
+        <div className="value"> {subscriber}</div>
+      </li>
+      <li>
+        <div className="label">Dernier Follower</div>
+        <div className="value"> {follower}</div>
+      </li>
+      <li>
+        <div className="label">Dernier Don</div>
+        <div className="value"> {donator} - {donation}€</div>
+      </li>
+    </ul>
+  </header>
+)
 
 export default Header;

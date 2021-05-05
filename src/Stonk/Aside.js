@@ -1,28 +1,25 @@
-import React, { useState, forceUpdate } from 'react';
+import React, { useState } from 'react';
 import StonkChart from './StonkChart'
 
 const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
-  const [active, setActive] = useState({
-    'IMA': false,
-    'SLT': false,
-    'OGL': false,
-    'ZPG': false,
-    'NTM': false,
-  });
-  console.log('INIT', active)
+  /*
+   * state 'active' object structure
+   * { 'IMA': false, 'SLT': false, ... }
+   */
+  const [active, ] = useState(
+    cryptoList
+      .map((crypto) => ( crypto.symbol ))
+      .reduce((acc, crypto) => (acc[crypto]=false, acc),{})
+  );
 
   const handleAsideClick = (event, cryptoSymbol) => {
     event.preventDefault();
     active[cryptoSymbol] = !active[cryptoSymbol];
   }
 
-  if (!isLoaded) {
-    return (
+  return ( !isLoaded ? (
       <aside hidden></aside>
-    )
-  } else {
-
-    return (
+    ) : (
       <aside>
         <ul>
           {cryptoList.map((crypto) => (
@@ -34,7 +31,7 @@ const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
               <div className="crypto-btn">
                 <div className="no-click">
                   <div className="crypto-symbol">
-                    {active[crypto.symbol].toString()}
+                    {crypto.symbol}
                   </div>
                   <div className="crypto-value">
                     {cryptoData[crypto.symbol].toFixed(2)}
@@ -56,7 +53,7 @@ const Aside = ({ isLoaded, cryptoList, cryptoData }) => {
         </ul>
       </aside>
     )
-  }
+  )
 }
 
 export default Aside;

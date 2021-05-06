@@ -5,7 +5,11 @@ Twitch stream widget for displaying charts of cryptocurrencies exchange rates
 
 A short React project made for programming courses. :mortar_board:
 
+[Post-mortem report](./misc/rapport.pdf)
+
 ## **Preview** :rocket::framed_picture:
+
+[Video](./misc/cryptostonks.mp4)
 
 ![Screenshot 1](./misc/screenshot-1.png)
 
